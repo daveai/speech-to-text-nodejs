@@ -16,8 +16,9 @@
 
 
 const express = require('express');
-
+var cors = require('cors');
 const app = express();
+app.use(cors());
 const SpeechToTextV1 = require('watson-developer-cloud/speech-to-text/v1');
 const AuthorizationV1 = require('watson-developer-cloud/authorization/v1');
 const IamTokenManagerV1 = require('watson-developer-cloud/iam-token-manager/v1');
@@ -49,7 +50,7 @@ if (process.env.SPEECH_TO_TEXT_IAM_APIKEY && process.env.SPEECH_TO_TEXT_IAM_APIK
 app.get('/', (req, res) => res.render('index'));
 
 // Get credentials using your credentials
-app.get('/api/credentials', (req, res, next) => {
+app.get('/stt/credentials', (req, res, next) => {
   tokenManager.getToken((err, token) => {
     if (err) {
       next(err);

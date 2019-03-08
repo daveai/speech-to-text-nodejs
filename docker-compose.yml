@@ -1,0 +1,9 @@
+# Use docker-compose syntax Version 2
+version: "2"
+services:
+  # Our main "nodeapp" service which has the express aplication inside
+  nodeapp1:
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"

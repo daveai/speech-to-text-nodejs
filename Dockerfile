@@ -7,6 +7,6 @@ COPY . /src
 WORKDIR /src
 RUN npm install
 
-EXPOSE 3000 8020
+EXPOSE 3000 3000
 # Define default command.
 CMD ["node", "server.js"]
